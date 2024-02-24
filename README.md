@@ -1,6 +1,6 @@
 # fishing_tool
 
-A new Flutter project.
+ENJOY FISHING🎣
 
 ## Getting Started
 
