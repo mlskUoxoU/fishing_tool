@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import 'db/db.dart';
+import 'db/db_helper.dart';
+
 
 class KingSizeTable extends StatefulWidget{
   const KingSizeTable({Key? key}) : super(key: key);
@@ -18,6 +21,8 @@ class _KingSizeTable extends State<KingSizeTable>{
   //   });
   // }
 
+  List<DataCell> fishes = [];
+
   @override
   Widget build(BuildContext context){
     return SafeArea(
@@ -29,44 +34,49 @@ class _KingSizeTable extends State<KingSizeTable>{
                       icon: Icon(Icons.abc))
           ],
         ),
-        body: SingleChildScrollView(
-          child: DataTable(
-            columns: const [
-              DataColumn(
-                label: Text('No'),
-                
-              ),
-              DataColumn(
-                label: Text('🐟リスト'),
-                
-              ),
-              DataColumn(
-                label: Text('👑'),
-                
-              ),
-              DataColumn(
-                label: Text('メモ'),
-                
-              ),
-              DataColumn(
-                label: Text('メモ'),
-                
-              ),
-            ],
-            rows: [
-              for (var i = 0; i < 20; i++)
-                DataRow(
-                  cells: [
-                    DataCell(Text('${20 - i}郎')),
-                    DataCell(Text('$i')),
-                    DataCell(Text(i.isOdd ? '男' : '女')),
-                    DataCell(Text(i.isOdd ? '男' : '女')),
+        body: ScrollConfiguration(
+            behavior: CustomScrollBehavior(),
+            
+            // 縦横スクロール
+            child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+
+              child: DataTable(
+                columns: const [
+                  DataColumn(
+                    label: Text('No'),
                     
-                    DataCell(Text(i.isOdd ? '男' : '女')),
-                  ],
-                ),
-              
-            ]
+                  ),
+                  DataColumn(
+                    label: Text('🐟リスト'),
+                    
+                  ),
+                  DataColumn(
+                    label: Text('👑'),
+                    
+                  ),
+                  DataColumn(
+                    label: Text('メモ'),
+                    
+                  ),
+                ],
+                rows: [
+                  for (var i = 0; i < 20; i++)
+                    DataRow(
+                      cells: [
+                        DataCell(Text('${200 - i}')),
+                        DataCell(Text('リュウグウノツカイ')),
+                        DataCell(Text(i.isOdd ? '男' : '女')),
+                        DataCell(Text(i.isEven ? '男' : '女')),
+                      
+                      ],
+                    ),
+                  
+                ]
+              )
+            )
           )
         )
       )
