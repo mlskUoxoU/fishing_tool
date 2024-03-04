@@ -39,52 +39,61 @@ class _BtmNavBar extends State<BtmNavBar>{
       //   title: const Text('bottom navigation bar'),
       // ),
       body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.crown),
-            activeIcon: Icon(FontAwesomeIcons.crown,
-                            color: Colors.amber,),
-            label: 'King',
-            tooltip: 'キングサイズ',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.phishing_outlined,
-                      size: 30),
-            activeIcon: Icon(Icons.phishing_outlined,
-                            size: 30,
-                            // color: Color.fromARGB(255, 76, 65, 231)
-                            ),
-            label: 'Fishing Pond',
-            tooltip: '釣り堀',
-            backgroundColor: Colors.blue,
-          ), 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            activeIcon: Icon(Icons.book,
-                            // color: Color.fromARGB(255, 102, 52, 28)
-                            ),
-            label: 'Information',
-            tooltip: '情報',
-            backgroundColor: Colors.blue,
-          ), 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            activeIcon: Icon(Icons.settings_outlined,
-                            // color: Color.fromARGB(255, 102, 52, 28)
-                            ),
-            label: 'Setting',
-            tooltip: '設定',
-            backgroundColor: Colors.blue,
-          ),          
-        ],
+      bottomNavigationBar: ClipRRect( 
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(15.0),
+          topRight: Radius.circular(15.0),
+        ),
 
-        backgroundColor: Color.fromARGB(255, 8, 8, 129),
-        unselectedItemColor: Color.fromARGB(255, 131, 129, 129),
-      ),
+        child:BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.crown),
+              activeIcon: Icon(FontAwesomeIcons.crown,
+                              color: Colors.amber,),
+              label: 'King',
+              tooltip: 'キングサイズ',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.phishing_outlined,
+                        size: 30),
+              activeIcon: Icon(Icons.phishing_outlined,
+                              size: 30,
+                              // color: Color.fromARGB(255, 76, 65, 231)
+                              ),
+              label: 'Fishing Pond',
+              tooltip: '釣り堀',
+              backgroundColor: Colors.blue,
+            ), 
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              activeIcon: Icon(Icons.book,
+                              // color: Color.fromARGB(255, 102, 52, 28)
+                              ),
+              label: 'Information',
+              tooltip: '情報',
+              backgroundColor: Colors.blue,
+            ), 
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings_outlined),
+              activeIcon: Icon(Icons.settings_outlined,
+                              // color: Color.fromARGB(255, 102, 52, 28)
+                              ),
+              label: 'Setting',
+              tooltip: '設定',
+              backgroundColor: Colors.blue,
+            ),          
+          ],
+
+          backgroundColor: Color.fromARGB(255, 8, 8, 129),
+          showUnselectedLabels: true,
+          unselectedItemColor: Color.fromARGB(255, 131, 129, 129),
+        ),
+      )
     );
   }
   

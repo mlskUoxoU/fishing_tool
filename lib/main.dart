@@ -1,9 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 
 import 'src/btm_nav_bar.dart';
-import 'src/screens/kingsize.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  // firebase初期化
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const MyApp());
+} 
 
 
 class MyApp extends StatelessWidget {
